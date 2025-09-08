@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@font-face {
+  font-display: swap;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/outfit-v15-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/outfit-v15-latin-700.woff2") format("woff2");
+}
+
+@theme {
+  --color-slate-300: hsl(212, 45%, 89%);
+  --color-slate-500: hsl(216, 15%, 48%);
+  --color-slate-900: hsl(218, 44%, 22%);
+  --color-light: var(--color-slate-300);
+  --color-accent: hsl(216 80% 44% / 1);
+  --color-card: #ffffff;
+  --color-selection: var(--color-accent);
+  --color-selection-foreground: #ffffff;
+  --font-sans: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-outfit: "Outfit", var(--font-sans);
+  --radius-card: var(--spacing-card);
+  --radius-img: 10px;
+  --spacing-card: 16px;
+  --breakpoint-xs: 375px;
+}
+
+@layer components {
+  .link {
+    @apply focus-visible:ring-accent focus-visible:ring-offset-accent rounded-[2px] underline decoration-slate-900 decoration-1 underline-offset-2 transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    text-decoration-skip-ink: auto;
+  }
+
+  @media (hover: hover) {
+    .link:hover {
+      @apply text-accent decoration-accent underline-offset-4;
+    }
+  }
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  font-synthesis-weight: none;
+}
+
+body {
+  background: var(--color-light);
+  color: black;
+  font-family: var(--font-outfit);
+}
+
+::selection {
+  background: var(--color-selection);
+  color: var(--color-selection-foreground);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: var(--color-selection);
+  color: var(--color-selection-foreground);
+  text-shadow: none;
+}
+
+@media (forced-colors: active) {
+  ::selection {
+    background: Highlight;
+    color: HighlightText;
+  }
+}
+
+svg,
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
